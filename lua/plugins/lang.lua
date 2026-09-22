@@ -6,7 +6,7 @@ return {
         jdk = {
           auto_install = false,
           version = "25",
-          path = "C:/Program Files/Java/jdk-25",
+          path = "C:/Program Files/Java/jdk-25"
         },
       })
 

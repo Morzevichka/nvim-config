@@ -14,5 +14,12 @@ vim.opt.shiftwidth = 4
 vim.g.autoformat = false
 
 -- Set swap directory
-vim.fn.mkdir("C:/Users/solov/AppData/Local/Temp/swap", "p")
-vim.opt.directory = "C:/Users/solov/AppData/Local/Temp/swap"
+if vim.fn.has("win32") == 1 then
+  local localappdatapath = os.getenv("LOCALAPPDATA")
+
+  if localappdatapath then
+    local tempswap = vim.fn.resolve(localappdatapath .. "/Temp/swap")
+    vim.fn.mkdir(tempswap, "p")
+    vim.opt.directory = tempswap
+  end
+end
